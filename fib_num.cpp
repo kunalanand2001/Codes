@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
+#define int unsigned long long int
 
 vector<vector<int>> mult_mat(vector<vector<int>> &a,vector<vector<int>> &b){     // function to multiply two matrices.
     int n = a.size();
@@ -40,7 +42,7 @@ vector<vector<int>> matrix_exp(vector<vector<int>> &a,int n){    //function to e
     return ans;
 }
 
-int main(){
+ signed main(){
     int n;
     cin>>n;
     vector<vector<int>> a = {{1,1},{1,0}};
@@ -53,8 +55,14 @@ int main(){
         }
         cout<<endl;
     }
-    cout<<"The "<<n<<"th fib. number is "<<ans[0][1];
+
+    auto start = high_resolution_clock::now();
+    cout<<"The "<<n<<"th fib. number is "<<ans[0][1]<<endl;
+    auto stop = high_resolution_clock::now();
+
+    auto duration = (stop - start);
+    cout << "Time taken by function: "<< duration.count() << " milliseconds" << endl;
     return 0;
 }
 
-    // working till n = 46.
+    
